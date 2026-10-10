@@ -1,0 +1,678 @@
+
+/* =========================
+   BASIC SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #08050a;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at top, #3b163d 0%, transparent 45%),
+        radial-gradient(circle at bottom, #16091d 0%, #08050a 65%);
+
+    z-index: -2;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts span {
+    position: fixed;
+    bottom: -50px;
+
+    font-size: 22px;
+
+    animation: floatingHearts 10s linear infinite;
+
+    opacity: 0.7;
+
+    z-index: -1;
+}
+
+.hearts span:nth-child(1) {
+    left: 10%;
+    animation-delay: 1s;
+}
+
+.hearts span:nth-child(2) {
+    left: 25%;
+    animation-delay: 4s;
+}
+
+.hearts span:nth-child(3) {
+    left: 45%;
+    animation-delay: 2s;
+}
+
+.hearts span:nth-child(4) {
+    left: 65%;
+    animation-delay: 6s;
+}
+
+.hearts span:nth-child(5) {
+    left: 80%;
+    animation-delay: 3s;
+}
+
+.hearts span:nth-child(6) {
+    left: 92%;
+    animation-delay: 8s;
+}
+
+@keyframes floatingHearts {
+
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+}
+
+.welcome-heart {
+    font-size: 75px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.welcome h1 {
+    font-size: 52px;
+
+    margin: 20px 0;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 15px #ff7bbd,
+        0 0 30px #ff4fa3;
+}
+
+.welcome p {
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    color: #f5dce9;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #ff4f9a,
+        #9b3bff
+    );
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px #ff4f9a;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 35px #ff4f9a;
+}
+
+
+/* =========================
+   STORY SECTIONS
+========================= */
+
+.story-section {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition: 1.5s;
+}
+
+.story-section.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo-card {
+    width: 270px;
+    height: 340px;
+
+    position: relative;
+
+    border-radius: 20px;
+
+    padding: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #ff75b8,
+        #a64dff,
+        #ff75b8
+    );
+
+    box-shadow:
+        0 0 30px #ff4fa3;
+
+    animation: photoFloat 4s ease-in-out infinite;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    display: block;
+}
+
+@keyframes photoFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.story-section h2 {
+    font-size: 35px;
+
+    margin: 25px 0;
+
+    text-shadow:
+        0 0 15px #ff65b0;
+}
+
+
+/* =========================
+   MESSAGE BOX
+========================= */
+
+.message-box {
+    max-width: 700px;
+
+    min-height: 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 150, 210, 0.4);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 25px rgba(255, 70, 170, 0.25);
+}
+
+.message-box p {
+    font-size: 21px;
+
+    line-height: 1.7;
+
+    color: #ffe8f3;
+}
+
+
+/* =========================
+   CONVERSATION
+========================= */
+
+.conversation {
+    min-height: 100vh;
+
+    padding: 70px 20px;
+
+    text-align: center;
+}
+
+.conversation h1 {
+    font-size: 40px;
+
+    margin-bottom: 40px;
+
+    text-shadow:
+        0 0 15px #ff65b0;
+}
+
+.conversation-box {
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.chat {
+    max-width: 80%;
+
+    padding: 18px 22px;
+
+    margin: 25px 0;
+
+    border-radius: 20px;
+
+    text-align: left;
+
+    animation: chatAppear 1s ease;
+}
+
+.mama-chat {
+    margin-right: auto;
+
+    background: rgba(255, 95, 170, 0.18);
+
+    border-left: 4px solid #ff72b8;
+}
+
+.son-chat {
+    margin-left: auto;
+
+    background: rgba(120, 80, 255, 0.18);
+
+    border-right: 4px solid #9d7cff;
+}
+
+.chat-name {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+    color: #ffb4d7;
+}
+
+.chat p {
+    line-height: 1.6;
+
+    font-size: 17px;
+}
+
+@keyframes chatAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   HUG SECTION
+========================= */
+
+.hug-section {
+    min-height: 100vh;
+
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.hug-section.active {
+    display: flex;
+
+    animation: finalAppear 2s ease;
+}
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   TOGETHER PHOTO
+========================= */
+
+.together-photo {
+    width: 330px;
+    height: 380px;
+
+    padding: 8px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #ff78b9,
+        #a44cff,
+        #ff78b9
+    );
+
+    box-shadow:
+        0 0 40px #ff4fa3;
+
+    animation: emotionalHug 4s ease-in-out infinite;
+}
+
+.together-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+}
+
+@keyframes emotionalHug {
+
+    0% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(1.04);
+    }
+
+    55% {
+        transform: scale(1.08);
+    }
+
+    75% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.hug-section h1 {
+    margin-top: 30px;
+
+    font-size: 40px;
+
+    text-shadow:
+        0 0 20px #ff62ae;
+}
+
+.hug-text {
+    margin-top: 20px;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    color: #ffe5f0;
+}
+
+.hug-final {
+    margin-top: 25px;
+
+    font-size: 22px;
+
+    color: #ffb7d7;
+
+    font-style: italic;
+}
+
+.forever {
+    margin-top: 35px;
+
+    font-size: 25px;
+
+    animation: heartbeat 2s infinite;
+}
+
+
+/* =========================
+   HEARTS AROUND FINAL PHOTO
+========================= */
+
+.hug-hearts span {
+    position: absolute;
+
+    font-size: 30px;
+
+    animation: heartFloat 4s infinite;
+}
+
+.hug-hearts span:nth-child(1) {
+    left: 15%;
+    top: 25%;
+}
+
+.hug-hearts span:nth-child(2) {
+    right: 15%;
+    top: 30%;
+
+    animation-delay: 1s;
+}
+
+.hug-hearts span:nth-child(3) {
+    left: 20%;
+    bottom: 25%;
+
+    animation-delay: 2s;
+}
+
+.hug-hearts span:nth-child(4) {
+    right: 20%;
+    bottom: 25%;
+
+    animation-delay: 3s;
+}
+
+.hug-hearts span:nth-child(5) {
+    top: 15%;
+
+    animation-delay: 1.5s;
+}
+
+@keyframes heartFloat {
+
+    0% {
+        transform: translateY(15px) scale(0.8);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.2);
+    }
+
+    100% {
+        transform: translateY(-30px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .welcome h1 {
+        font-size: 38px;
+    }
+
+    .welcome p {
+        font-size: 17px;
+    }
+
+    .photo-card {
+        width: 230px;
+        height: 290px;
+    }
+
+    .message-box {
+        width: 95%;
+    }
+
+    .message-box p {
+        font-size: 18px;
+    }
+
+    .conversation h1 {
+        font-size: 32px;
+    }
+
+    .chat {
+        max-width: 90%;
+    }
+
+    .together-photo {
+        width: 270px;
+        height: 330px;
+    }
+
+    .hug-section h1 {
+        font-size: 32px;
+    }
+
+    .hug-text {
+        font-size: 17px;
+    }
+
+    .hug-final {
+        font-size: 19px;
+    }
+}
